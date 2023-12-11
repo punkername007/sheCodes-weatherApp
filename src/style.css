@@ -7,21 +7,60 @@
   width: 600px;
 }
 
+.search-form {
+  max-width: 100%;
+  margin: 0 0 25px 0;
+}
+
 .search-field {
   border: none;
   border-radius: 8px;
   font-size: 15px;
-  padding: 15px;
+  padding: 20px;
   width: 70%;
 }
 
 .search-button {
-  background-color: black;
+  background: black;
   border: none;
   border-radius: 8px;
   color: white;
   font-size: 15px;
   margin: 0 0 0 10px;
-  padding: 15px;
+  padding: 20px 10px;
   width: 20%;
+  transition: all 200ms ease-in-out;
+}
+
+.search-button:hover {
+  cursor: pointer;
+  background: rgba(0, 0, 0, 0.331);
+}
+
+.current-weather {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.current-temperature {
+  display: flex;
+  justify-content: center;
+}
+.temperature-icon {
+  position: relative;
+  top: 30%;
+  left: 10%;
+  font-size: 60px;
+}
+.temperature-value {
+  position: relative;
+  font-size: 80px;
+  top: 20%;
+  left: 10%;
+}
+.temperature-unit {
+  position: relative;
+  top: 27%;
+  left: 10%;
+  font-size: 30px;
 }
