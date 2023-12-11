@@ -15,22 +15,28 @@
   <body>
     <div class="weather-app">
       <header>
-        <form class="search-form">
+        <form class="search-form" id="search-form">
           <input
             type="search"
             class="search-field"
+            id="search-field"
             placeholder="Enter a city"
           />
-          <input type="submit" class="search-button" value="Search" />
+          <input
+            type="submit"
+            class="search-button"
+            id="search-button"
+            value="Search"
+          />
         </form>
       </header>
 
       <main>
         <div class="current-weather">
           <div class="current-info">
-            <h1 class="current-city">City</h1>
+            <h1 class="current-city" id="current-city">City</h1>
             <p class="current-details">
-              <span>Monday 15:28</span>, moderate rain <br />
+              <span id="current-data">Monday 15:28</span>, moderate rain <br />
               Humidity: <strong>87%</strong>, Wind: <strong>7.2km/h</strong>
             </p>
           </div>
