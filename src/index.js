@@ -1,8 +1,19 @@
 function search(event) {
   event.preventDefault();
   let userInput = document.querySelector("#search-field");
+  let apiKey = "e2c0b68bt1bfbc04o7da0f6ea7720334";
+
+  let url = `https://api.shecodes.io/weather/v1/current?query=miami&key=${apiKey}`;
+  axios.get(url).then(showData);
+}
+
+function showData(response) {
+  let temperature = document.querySelector("#temperature-value");
+  let current_temperature = Math.round(response.data.temperature.current);
+  temperature.innerHTML = current_temperature;
+
   let city = document.querySelector("#current-city");
-  city.innerHTML = `${userInput.value}`;
+  city.innerHTML = `${response.data.city}`;
 }
 
 function formatDate(data) {
