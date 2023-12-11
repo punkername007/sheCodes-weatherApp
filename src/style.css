@@ -79,12 +79,10 @@ main {
 }
 .temperature-icon {
   font-size: 60px;
-  margin-top: 18px;
 }
 .temperature-value {
   font-size: 88px;
   font-weight: 600;
-  margin-left: 10px;
 }
 .temperature-unit {
   margin-top: 16px;

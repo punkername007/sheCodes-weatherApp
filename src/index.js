@@ -1,28 +1,35 @@
-function handleSearch(event) {
-  event.preventDefault();
-  let userInput = document.querySelector("#search-field");
+function searchCity(city) {
   let apiKey = "e2c0b68bt1bfbc04o7da0f6ea7720334";
-  let city = userInput.value;
   let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
-  axios.get(url).then(showData);
+  axios.get(url).then(refreshWeather);
+  console.log(url);
 }
 
-function showData(response) {
+function handleSearchSubmit(event) {
+  event.preventDefault();
+  let searchInput = document.querySelector("#search-field");
+  searchCity(searchInput.value);
+}
+
+function refreshWeather(response) {
   let temperature = document.querySelector("#temperature-value");
-  let current_temperature = Math.round(response.data.temperature.current);
-  temperature.innerHTML = current_temperature;
+  let current_temperature = response.data.temperature.current;
+  temperature.innerHTML = Math.round(current_temperature);
 
   let city = document.querySelector("#current-city");
   city.innerHTML = `${response.data.city}`;
 
-  console.log(response);
-
   let condition = document.querySelector("#condition");
   condition.innerHTML = `${response.data.condition.description}`;
+
   let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = `${response.data.temperature.humidity}`;
+  humidity.innerHTML = `${response.data.temperature.humidity}%`;
+
   let wind = document.querySelector("#wind");
   wind.innerHTML = `${response.data.wind.speed}km/h`;
+
+  let emoji = document.querySelector("#temperature-icon");
+  emoji.innerHTML = `<img src=${response.data.condition.icon_url}>`;
 }
 
 function formatDate(data) {
@@ -52,8 +59,10 @@ function formatDate(data) {
 }
 
 let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSearch);
+searchForm.addEventListener("submit", handleSearchSubmit);
 
 let currentDay = new Date();
 let data = document.querySelector("#current-data");
 data.innerHTML = formatDate(currentDay);
+
+searchCity("Leipzig");
