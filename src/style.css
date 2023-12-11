@@ -1,22 +1,28 @@
-.weather-app {
-  background-color: rgba(0, 0, 0, 0.484);
-  border-radius: 15px;
-  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
-  margin: 30px auto;
-  padding: 30px;
-  width: 600px;
+body {
+  font-family: "Roboto", sans-serif;
+  background: #f9f7fe;
 }
 
-.search-form {
-  max-width: 100%;
-  margin: 0 0 25px 0;
+.weather-app {
+  background: rgba(192, 190, 190, 0.484);
+  border-radius: 15px;
+  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+  margin: 45px auto;
+  padding: 30px;
+  max-width: 600px;
+}
+
+header {
+  border-bottom: 1px solid white;
+  padding: 0 0 30px 0;
 }
 
 .search-field {
+  background: #f9f7fe;
   border: none;
   border-radius: 8px;
-  font-size: 15px;
-  padding: 20px;
+  font-size: 16px;
+  padding: 15px 20px;
   width: 70%;
 }
 
@@ -25,9 +31,9 @@
   border: none;
   border-radius: 8px;
   color: white;
-  font-size: 15px;
-  margin: 0 0 0 10px;
-  padding: 20px 10px;
+  font-size: 16px;
+  margin-left: 5px;
+  padding: 15px 30px;
   width: 20%;
   transition: all 200ms ease-in-out;
 }
@@ -37,30 +43,54 @@
   background: rgba(0, 0, 0, 0.331);
 }
 
+main {
+  padding: 30px 0;
+}
+
 .current-weather {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
+  justify-content: space-between;
+}
+
+.current-city {
+  margin: 20px 0 10px;
+  font-size: 38px;
+  line-height: 40px;
+}
+
+.current-details {
+  font-size: 16px;
+  color: rgba(39, 33, 66, 0.4);
+  line-height: 24px;
+  font-weight: 500;
+}
+
+.current-details strong {
+  color: #f65282;
 }
 
 .current-temperature {
   display: flex;
-  justify-content: center;
+  padding-right: 10px;
 }
 .temperature-icon {
-  position: relative;
-  top: 30%;
-  left: 10%;
   font-size: 60px;
+  margin-top: 18px;
 }
 .temperature-value {
-  position: relative;
-  font-size: 80px;
-  top: 20%;
-  left: 10%;
+  font-size: 88px;
+  font-weight: 600;
+  margin-left: 10px;
 }
 .temperature-unit {
-  position: relative;
-  top: 27%;
-  left: 10%;
-  font-size: 30px;
+  margin-top: 16px;
+  font-size: 28px;
+}
+
+footer {
+  border-top: 1px solid white;
+  padding: 30px 0 0 0;
+  font-size: 13px;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.8);
 }
