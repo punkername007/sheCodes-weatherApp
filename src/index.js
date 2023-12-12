@@ -12,27 +12,26 @@ function handleSearchSubmit(event) {
 }
 
 function refreshWeather(response) {
-  let temperature = document.querySelector("#temperature-value");
-  let current_temperature = response.data.temperature.current;
-  temperature.innerHTML = Math.round(current_temperature);
-
   let city = document.querySelector("#current-city");
-  city.innerHTML = `${response.data.city}`;
-
   let condition = document.querySelector("#condition");
-  condition.innerHTML = `${response.data.condition.description}`;
-
+  let current_temperature = response.data.temperature.current;
+  let date = new Date(response.data.time * 1000);
+  let icon = document.querySelector("#temperature-icon");
   let humidity = document.querySelector("#humidity");
+  let temperature = document.querySelector("#temperature-value");
+  let time = document.querySelector("#current-time");
+  let wind = document.querySelector("#wind-speed");
+
+  condition.innerHTML = `${response.data.condition.description}`;
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
-
-  let wind = document.querySelector("#wind");
   wind.innerHTML = `${response.data.wind.speed}km/h`;
-
-  let emoji = document.querySelector("#temperature-icon");
-  emoji.innerHTML = `<img src=${response.data.condition.icon_url}>`;
+  temperature.innerHTML = Math.round(current_temperature);
+  city.innerHTML = `${response.data.city}`;
+  icon.innerHTML = `<img src=${response.data.condition.icon_url}>`;
+  time.innerHTML = formatDate(date);
 }
 
-function formatDate(data) {
+function formatDate(date) {
   let weekDays = [
     "Sunday",
     "Monday",
@@ -43,9 +42,9 @@ function formatDate(data) {
     "Saturday",
   ];
 
-  let day = data.getDay();
-  let minutes = data.getMinutes();
-  let hours = data.getHours();
+  let day = weekDays[date.getDay()];
+  let minutes = date.getMinutes();
+  let hours = date.getHours();
 
   if (minutes < 10) {
     minutes = `0${minutes}`;
@@ -55,14 +54,10 @@ function formatDate(data) {
     hours = `0${hours}`;
   }
 
-  return `${weekDays[day]} ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes}`;
 }
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearchSubmit);
-
-let currentDay = new Date();
-let data = document.querySelector("#current-data");
-data.innerHTML = formatDate(currentDay);
 
 searchCity("Leipzig");
