@@ -26,7 +26,7 @@ function refreshWeather(response) {
   wind.innerHTML = `${response.data.wind.speed}km/h`;
   temperature.innerHTML = Math.round(current_temperature);
   city.innerHTML = `${response.data.city}`;
-  icon.innerHTML = `<img src=${response.data.condition.icon_url}>`;
+  icon.innerHTML = `<img src=${response.data.condition.icon_url} class = "temperature-icon">`;
   time.innerHTML = formatDate(date);
 }
 
