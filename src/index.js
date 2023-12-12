@@ -56,7 +56,27 @@ function formatDate(date) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let forecastHtml = "";
+
+  days.forEach(function (day) {
+    forecastHtml += `<div class="weather-forecast-day">
+                        <div class="weather-forecast-date">${day}</div>
+                        <div class="weather-forecast-icon">🌤</div>
+                        <div class="weather-forecast-temperatures">
+                            <div class="forecast-temperature"> <strong> 18° </strong></div>
+                            <div class="forecast-temperature"> 12° </div>
+                        </div>
+                    </div>`;
+  });
+
+  let forecast = document.querySelector("#forecast");
+  forecast.innerHTML = forecastHtml;
+}
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearchSubmit);
 
 searchCity("kingston");
+displayForecast();

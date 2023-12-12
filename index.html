@@ -34,7 +34,7 @@
 
       <main>
         <div class="current-weather">
-          <div class="current-info">
+          <div>
             <h1 class="current-city" id="current-city"></h1>
             <p class="current-details">
               <span id="current-time"></span>, <span id="condition"></span>
@@ -43,24 +43,13 @@
               <strong id="wind-speed"></strong>
             </p>
           </div>
-          <div class="current-temperature">
+          <div class="current-temperature-container">
             <div class="temperature-icon" id="temperature-icon"></div>
             <div class="temperature-value" id="temperature-value"></div>
             <div class="temperature-unit">°C</div>
           </div>
         </div>
-        <div class="weather-forecast">
-          <div class="row">
-            <div class="col-2">
-              <div class="weather-forecast-date">Wed</div>
-              <img src="" alt="🌤" width="42" />
-              <div class="weather-forecast-temperatures">
-                <span class="forecast-temperature-max"> 18° </span>
-                <span class="forecast-temperature-min"> 12° </span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div class="weather-forecast" id="forecast"></div>
       </main>
 
       <footer>
