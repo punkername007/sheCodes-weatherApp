@@ -21,10 +21,6 @@ header {
   padding: 0 0 30px 0;
 }
 
-.search-form {
-  display: block;
-}
-
 .search-field {
   background: #f9f7fe;
   border: none;
@@ -47,7 +43,7 @@ header {
 
 .search-button:hover {
   cursor: pointer;
-  background: rgba(0, 0, 0, 0.331);
+  background: #875df1c7;
 }
 
 main {
@@ -97,5 +93,5 @@ footer {
   padding: 30px 0 0 0;
   font-size: 14px;
   text-align: center;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.5);
 }

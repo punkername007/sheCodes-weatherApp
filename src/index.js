@@ -2,7 +2,6 @@ function searchCity(city) {
   let apiKey = "e2c0b68bt1bfbc04o7da0f6ea7720334";
   let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
   axios.get(url).then(refreshWeather);
-  console.log(url);
 }
 
 function handleSearchSubmit(event) {
@@ -60,4 +59,4 @@ function formatDate(date) {
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", handleSearchSubmit);
 
-searchCity("Leipzig");
+searchCity("kingston");
