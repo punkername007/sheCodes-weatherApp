@@ -27,35 +27,38 @@ function refreshWeather(response) {
   temperature.innerHTML = Math.round(current_temperature);
   city.innerHTML = `${response.data.city}`;
   icon.innerHTML = `<img src=${response.data.condition.icon_url} class = "temperature-icon">`;
-  time.innerHTML = formatDate(date);
+  time.innerHTML = formatDate();
 
   getForecast(response.data.city);
 }
 
-function formatDate(date) {
-  let weekDays = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
+function formatDate() {
+  let day = moment().format("dddd HH:MM");
+  console.log(day);
+  return `${day}`;
+  // let weekDays = [
+  //   "Sunday",
+  //   "Monday",
+  //   "Tuesday",
+  //   "Wednesday",
+  //   "Thursday",
+  //   "Friday",
+  //   "Saturday",
+  // ];
 
-  let day = weekDays[date.getDay()];
-  let minutes = date.getMinutes();
-  let hours = date.getHours();
+  // let day = weekDays[date.getDay()];
+  // let minutes = date.getMinutes();
+  // let hours = date.getHours();
 
-  if (minutes < 10) {
-    minutes = `0${minutes}`;
-  }
+  // if (minutes < 10) {
+  //   minutes = `0${minutes}`;
+  // }
 
-  if (hours < 10) {
-    hours = `0${hours}`;
-  }
+  // if (hours < 10) {
+  //   hours = `0${hours}`;
+  // }
 
-  return `${day} ${hours}:${minutes}`;
+  // return `${day} ${hours}:${minutes}`;
 }
 
 function formatDay(timestamp) {
